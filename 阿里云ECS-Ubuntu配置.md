@@ -15,6 +15,7 @@ ssh user@host
 
 没有的话就输入登录密码就可以了。
 
+
 # 更新
 先更新一下
 
@@ -23,6 +24,8 @@ apt-get update
 	
 apt-get upgrade
 ```
+
+<!--more-->
 
 # 安装Git
 

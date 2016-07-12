@@ -9,12 +9,13 @@ tags: SASS
 
 	sudo gem install sass
 	
-<!--more-->
 
 ## Sublime插件
 Sass 和 SASS Build 两个插件。
 
 安装成功后，.scss文件就可以正常使用代码高亮。如果文件名后缀是.css，也可以在控制台中搜索SASS选择 Set Syntax: SASS 以切换模式。可以使用 工具 > 编译 或者快捷键` Ctrl + B `编译文件，会自动在当前目录生成一个同名的编译后的CSS文件和CSS.MAP文件。
+
+<!--more-->
 
 # 运行
 	sass 文件名.scss
