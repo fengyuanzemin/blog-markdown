@@ -11,6 +11,15 @@ tags: gulp
 npm init
 ```
 
+<!--more-->
+
+一直回车，如果你懒得填一些东西
+
+# 安装gulp
+
+```sh
+npm install --save-dev gulp
+```
 
 # 安装gulp组件
 
