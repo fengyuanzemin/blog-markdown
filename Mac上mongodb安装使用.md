@@ -65,7 +65,13 @@ To have launchd start mongodb now and restart at login
 
 	use <database>
 	
-如果数据库不存在，则创建数据库
+如果数据库不存在，执行这个命令则创建数据库
+
+## 删除数据库
+先进入该数据库，再删除
+
+	use <database>
+	db.dropDatabase()
 
 差不多就这样了，想看具体的还是得查官方文档。
 
