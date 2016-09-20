@@ -11,6 +11,8 @@ tag: [NoSQL, mongoDB]
 
 	brew update
 	
+<!--more-->
+
 ## 安装支持TLS/SSL的mongoDB
 	
 	brew install mongodb --with-openssl
