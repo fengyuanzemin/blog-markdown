@@ -1,6 +1,6 @@
 ---
 title: Mac上mongoDB的安装使用
-data: 2016-07-28 11:57:11
+date: 2016-07-28 11:57:11
 tag: [NoSQL, mongoDB]
 ---
 
