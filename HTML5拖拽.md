@@ -13,6 +13,7 @@ tag: HTML5
 	* 当拖拽中的鼠标第一次进入一个元素的时候触发。
 * dragover
 	* 当拖拽中的鼠标移动经过一个元素的时候触发。
+<!--more-->
 * dragleave
 	* 当拖拽中的鼠标离开元素时触发。
 * drag
@@ -26,8 +27,10 @@ tag: HTML5
 
 div拖拽是把div从一个位置拖到另一个位置
 
+这里要用到三个event，被拖拽的元素是dragstart事件，容器元素是drapover和drop事件
+
 **draggable**属性:
-标签元素要设置这个属性，`draggable="true"`，不然不会有拖拽的效果
+标签元素要设置这个属性，`draggable="true"`，不然不会有拖拽的效果，而且还不能阻止默认事件
 
 ```html	
 <div class="drop-zone"><p>把div放到这里谢谢</p></div>
@@ -69,7 +72,7 @@ dropZone.addEventListener('dragover', function(e) {
 dropZone.addEventListener('drop', function(e) {
 	e.preventDefault();
 	var data = e.dataTransfer.getData('Text');
-	e.target.appendChild(document.querySelector('.' + data))
+	e.target.appendChild(document.querySelector('.' + data))；
 });
 ```
 
@@ -128,11 +131,12 @@ dropZone.addEventListener('drop', function(e) {
 
 # 图片拖拽
 
-图片拖拽的原理和文件拖拽一样，只不过是drop事件触发后，需要把图片的url赋值进去，这里我们需要FileReader对象，同时也有两种方法
+图片拖拽的原理和文件拖拽一样，只不过是drop事件触发后，需要把图片的url赋值进去，这里我们需要FileReader对象，有两种方法
 
 1. new一个image，然后给它的src赋值
 2. 设置div的background-image
 
+这里我们使用了new一个image的方法
 
 ```html
 <div class="drop-zone">
