@@ -32,9 +32,9 @@ SASS的变量命名是以`$`开头的，从下面的例子中可以看出，SASS
 ```sass
 $nav-color: #F90;
 nav {
-  $width: 100px;
-  width: $width;
-  color: $nav-color;
+	$width: 100px;
+	width: $width;
+	color: $nav-color;
 }
 $width:200px;
 div {
@@ -43,11 +43,13 @@ div {
 
 // 编译后
 nav {
-  width: 100px;
-  color: #F90; }
+	width: 100px;
+	color: #F90; 
+ }
 
 div {
-  width: 200px; }
+	width: 200px; 
+}
 ```
 
 ### 不存在变量提升
@@ -71,19 +73,20 @@ $width:200px;
 
 ```sass
 #main {
-  $width: 5em !global;
-  width: $width;
+	$width: 5em !global;
+	width: $width;
 }
 #sidebar {
-  width: $width;
+	width: $width;
 }
 
 // 编译后
 #main {
-  width: 5em; }
+	width: 5em; 
+}
 #sidebar {
-  width: 5em; }
-
+	width: 5em; 
+}
 ```
 
 ### 嵌套引用
@@ -92,12 +95,13 @@ $width:200px;
 
 ```sass
 $left:left;
-.div1{
-    border-#{$left}-width:5px;
+.div1 {
+	border-#{$left}-width:5px;
 }
 // 编译后
 .div1 {
-  border-left-width: 5px; }
+	border-left-width: 5px; 
+}
 ```
 
 ### 变量计算
@@ -105,35 +109,37 @@ $left:left;
 
 ```sass
 $left:20px;
-.div1{
+.div1 {
     margin-left:$left+12px;
 }
 // 编译后
 .div1 {
-  margin-left: 32px; }
+	margin-left: 32px; 
+}
 ```
 
 多种运算方式
 
 ```sass
 p {
-  font: 10px/8px;             // Plain CSS, no division
-  $width: 1000px;
-  width: $width/2;            // Uses a variable, does division
-  width: round(1.5)/2;        // Uses a function, does division
-  height: (500px/2);          // Uses parentheses, does division
-  margin-left: 5px + 8px/2px; // Uses +, does division
-  font: (italic bold 10px/8px); // In a list, parentheses don't count
+	font: 10px/8px;             // Plain CSS, no division
+	$width: 1000px;
+	width: $width/2;            // Uses a variable, does division
+	width: round(1.5)/2;        // Uses a function, does division
+	height: (500px/2);          // Uses parentheses, does division
+	margin-left: 5px + 8px/2px; // Uses +, does division
+	font: (italic bold 10px/8px); // In a list, parentheses don't count
 }
 
 // 编译后
 p {
-  font: 10px/8px;
-  width: 500px;
-  width: 1;
-  height: 250px;
-  margin-left: 9px;
-  font: italic bold 10px/8px; }
+	font: 10px/8px;
+	width: 500px;
+	width: 1;
+	height: 250px;
+	margin-left: 9px;
+	font: italic bold 10px/8px; 
+}
 ```
 
 
@@ -165,19 +171,19 @@ CSS中重复写选择器是非常恼人的。需要写一遍又一遍地写同�
 
 // 编译后
 #content article h1 {
-    color: #333;
+	color: #333;
 }
 
 #content article p {
-    margin-bottom: 1.4em;
+	margin-bottom: 1.4em;
 }
 
 #content aside {
     background-color: #EEE;
 }
 
-#content aside a { color: #000;
-
+#content aside a { 
+	color: #000;
 }
 ```
 
@@ -186,7 +192,7 @@ CSS中重复写选择器是非常恼人的。需要写一遍又一遍地写同�
 
 ```sass
 article {
-  nav + & { margin-top: 0 }
+	nav + & { margin-top: 0 }
 }
 
 // 编译后
@@ -200,18 +206,19 @@ nav + article {
 
 ```sass
 nav {
-  border: {
-  style: solid;
-  width: 1px;
-  color: #ccc;
-  }
+	border: {
+		style: solid;
+		width: 1px;
+		color: #ccc;
+  	}
 }
 
 // 编译后
 nav {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #ccc; }
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ccc;
+}
 ```
 甚至可以这样
 

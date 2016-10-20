@@ -4,6 +4,8 @@ date: 2016-03-14 17:48:09
 tags: gulp
 ---
 
+当然首先要有node环境
+
 # 创建package.json
 没有package.json，gulp的组件是安装不了的。
 
@@ -18,7 +20,7 @@ npm init
 # 安装gulp
 
 ```sh
-npm install --save-dev gulp
+npm i --save-dev gulp
 ```
 
 # 安装gulp组件
@@ -27,51 +29,51 @@ npm install --save-dev gulp
 ### [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css/) CSS压缩并清除
 
 ```sh
-npm install --save-dev gulp-clean-css 
+npm i --save-dev gulp-clean-css 
 ```
 	
-### [gulp-sass](https://www.npmjs.com/package/gulp-sass/)
+### [gulp-sass](https://www.npmjs.com/package/gulp-sass/) sass编译
 
 ```sh
-npm install --save-dev gulp-sass 
+npm i --save-dev gulp-sass 
 ```
 	
 ### [gulp-eslint ](https://www.npmjs.com/package/gulp-eslint/) JS代码检查 
 
 ```sh
-npm install --save-dev gulp-eslint
+npm i --save-dev gulp-eslint
 ```
 	
 ### [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer/) CSS自动添加前缀
 
 ```sh
-npm install --save-dev gulp-autoprefixer
+npm i --save-dev gulp-autoprefixer
 ```
 
 ### [gulp-uglify](https://www.npmjs.com/package/gulp-uglify/) 丑化文件，有压缩的功能
 
 ```sh
-npm install --save-dev gulp-uglify
+npm i --save-dev gulp-uglify
 ```
 
 	
 ### [gulp-rename](https://www.npmjs.com/package/gulp-rename/) 重命名
 
 ```sh
-npm install  --save-dev gulp-rename
+npm i  --save-dev gulp-rename
 ```
 	
 ### [gulp-babel](https://www.npmjs.com/package/gulp-babel) 使用ES6
 
 
 ```sh
-npm install --save-dev gulp-babel babel-preset-es2015
+npm i--save-dev gulp-babel babel-preset-es2015
 ```
 
 ### 删除文件工具del安装
 
 ```sh
-npm install --save-dev gulp del
+npm i --save-dev gulp del
 ```
 	
 
@@ -98,6 +100,7 @@ npm install --save-dev gulp del
 	|- package.json
 
 # gulpfile.js
+然后gulp需要有一个gulpfile.js的文件，一般在里面定义各种方法，去压缩、编译代码
 
 ```js
 const gulp = require('gulp');
@@ -110,7 +113,6 @@ const cleanCSS = require("gulp-clean-css"),
     eslint = require('gulp-eslint'),
     sass = require('gulp-sass'),
     babel = require('gulp-babel');
-
 
 // 清理CSS
 gulp.task('clean:css', function() {
@@ -136,13 +138,10 @@ gulp.task('mincss', ['clean:css', 'sass'], function() {
 // 对CSS总处理
 gulp.task('css', ['mincss']);
 
-
-
 // 清理JS
 gulp.task('clean:js', function() {
     del(['dist/js/**']);
 });
-
 
 // 对ES6的处理
 gulp.task('es6js', function() {
@@ -154,8 +153,6 @@ gulp.task('es6js', function() {
         .pipe(gulp.dest('src/js/es5/'));
 });
 
-
-
 // JS eslint、压缩、丑化
 gulp.task('js', ['clean:js', 'es6js'], function() {
     return gulp.src('src/js/es5/*.js')
@@ -166,8 +163,6 @@ gulp.task('js', ['clean:js', 'es6js'], function() {
         // .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/js/'));
 });
-
-
 
 // 清理全部
 gulp.task('clean:dist', function() {
