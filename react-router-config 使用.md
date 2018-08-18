@@ -4,11 +4,11 @@ date: 2017-08-25
 tags: [react, Javascript, react-router]
 ---
 
-react-router升级4之后，要想使用config方式的路由模式，要么自己写一个函数遍历config，要么使用react-router-config
+react-router升级4之后，要想使用 config 方式的路由模式，要么自己写一个函数遍历config，要么使用 react-router-config
 
 [https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config)
 
-react-router-config还是beta版本，其中有 renderRoutes 方法，其作用就是遍历你的routes，返回<Router>和<Switch>
+react-router-config还是beta版本，其中有 renderRoutes 方法，其作用就是遍历你的routes，返回 `<Router>` 和 `<Switch>`
 
 <!--more--> 
 
@@ -65,11 +65,11 @@ const routes = [
     }, 
 ];
 ```
-在使用时，需要用renderRoutes(routes)
+在使用时，需要用 renderRoutes(routes)
 
 而且，如果是嵌套路由，那么父路由处也需要写这个渲染函数
 
-比如在Index 组件里
+比如在 Index 组件里
 
 ```js
 import React from 'react'; 
