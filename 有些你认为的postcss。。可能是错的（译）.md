@@ -4,8 +4,6 @@ date: 2017-10-20
 tags: [css, postcss, 翻译]
 ---
 
-# 有些你认为的PostCSS。。可能是错的（译）
-
 原文链接  [http://julian.io/some-things-you-may-think-about-postcss-and-you-might-be-wrong/](http://julian.io/some-things-you-may-think-about-postcss-and-you-might-be-wrong/)
 
 我最近在我不同的工作中尝试了 PostCSS - Meteor.js 、 简单的 React 、还有 Webpack 。我知道我需要尝试它，因为使用它每个人都很激动并且它不会令我失望。你将读到一些我在还没学习 PostCSS 前，对于它的一些想法。因此，这个也将适用于没使用过它的人。
