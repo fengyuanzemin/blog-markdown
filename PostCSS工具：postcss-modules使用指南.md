@@ -8,6 +8,8 @@ tags: [PostCSS, CSS, Plugin]
 
 PostCSS 作为一个强大的样式转化工具，使用JS编写，能运行在 Webpack、Gulp、Grunt 以及 Node 上。这些插件可以检查（lint）你的 CSS，支持 CSS Variables 和 Mixins， 编译尚未被浏览器广泛支持的先进的 CSS 语法，内联图片，以及其它很多优秀的功能。
 
+<!--more-->
+
 根据[官网](https://github.com/postcss/postcss/blob/master/README.cn.md)统计，已经有200+的插件。而 [postcss-modules](https://github.com/css-modules/postcss-modules) 就是其中之一。今天我们来介绍 postcss-modules 的使用。
 
 # 安装
