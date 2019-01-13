@@ -23,7 +23,7 @@ happypack是一个webpack插件，用于加快打包速度
 # 第二步
 然后在happypack的插件里面再配置babel-loader就行了
 
-```
+```js
 new HappyPack({
     // loaders is the only required parameter:
     loaders: ['babel-loader'],
