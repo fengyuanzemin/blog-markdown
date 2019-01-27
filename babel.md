@@ -26,7 +26,7 @@ babel 只做语法层面的转译，不管能不能正常运行。
 ## preset
 ### env
 
-基于环境来转换。不包含 stage-X 的代码
+基于环境来转换。不包含 stage-X 的代码。是已经完成提案，添加入标准的代码。
 
 ```sh
 yarn add @babel/preset-env -D
@@ -56,7 +56,13 @@ module.exports = {
 
 chrome 1 与 chrome 71 的区别
 
+chrome 71:
 
+![chrome 71](http://img.fengyuanzemin.com/blog/usage%20chrome71.png)
+
+chrome 1:
+
+![chrome 1](http://img.fengyuanzemin.com/blog/entry%20chrome1.png)
 
 ### module
 启用ES6模块语法到另一个模块类型的转换。
@@ -83,6 +89,7 @@ chrome 1 与 chrome 71 的区别
 
 而且会检测代码里面已经有 @babel/polyfill 时会提醒你代码冗余。
 
+![提示](http://img.fengyuanzemin.com/blog/babel-polyfill%E4%B8%8Eusage%E5%90%8C%E6%97%B6%E4%BD%BF%E7%94%A8%E7%9A%84%E6%8F%90%E7%A4%BA.png)
 
 
 #### entry
@@ -275,12 +282,7 @@ yarn add @babel/runtime
 
 #### transform-runtime 与 babel-polyfill
 
-平常我们使用 babel-polyfill 时，它提供了很多例如 Set 、Map 等的内置插件，但是这个会污染全局作用域。
-
-这个对于项目来说是好事，但是如果是npm库这种类型的，有可能会导致未知的问题。
-
-这个时候就需要使用 `transform-runtime` 插件了，它不会污染全局作用域。
-
+见
 
 ## polyfill
 
