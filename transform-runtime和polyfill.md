@@ -181,17 +181,17 @@ module.exports = {
 >This is where the @babel/plugin-transform-runtime plugin comes in: all of the helpers will reference the module @babel/runtime to avoid duplication across your compiled output. The runtime will be compiled into your build.
 >
 >这时则需要使用 `@babel/plugin-transform-runtime`：所有的 `helper` 都会引用模块 `@babel/runtime`，以避免编译输出的重复问题。这个运行时会被编译到你的构建版本当中。
->
+
 >Another purpose of this transformer is to create a sandboxed environment for your code. If you use @babel/polyfill and the built-ins it provides such as Promise, Set and Map, those will pollute the global scope. While this might be ok for an app or a command line tool, it becomes a problem if your code is a library which you intend to publish for others to use or if you can't exactly control the environment in which your code will run.
 >
 >这个转译器的另外一个目的就是为你的代码创建一个沙盒环境。如果你使用了 `@babel/polyfill`，它提供了诸如 `Promise`，`Set` 以及 `Map` 之类的内置插件，这些将污染全局作用域。虽然这对于应用程序或命令行工具来说可能是好事，但如果你的代码打算发布为供其他人使用的库，或你无法完全控制代码运行的环境，则会成为问题。
->
+
 >The transformer will alias these built-ins to core-js so you can use them seamlessly without having to require the polyfill.
 >
 >转译器将这些内置插件起了别名 core-js，这样你就可以无缝的使用它们，并且无需使用 `polyfill`。
 
 
-示例
+### 示例
 
 假如我有如下代码，里面使用了 rest-spread
 

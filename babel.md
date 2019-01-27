@@ -282,7 +282,7 @@ yarn add @babel/runtime
 
 #### transform-runtime 与 babel-polyfill
 
-见
+见 [babel transform-runtime 和 polyfill](http://blog.fengyuanzemin.com/2019/01/27/transform-runtime%E5%92%8Cpolyfill/)
 
 ## polyfill
 
@@ -301,7 +301,7 @@ Babel 包含一个可自定义 regenerator runtime 和 core-js 的 polyfill 。
 为了达到这一点， polyfill 添加到了全局范围，就像原生类型比如 String 一样。
 
 
-presets 与 plugins 的执行顺序
+## presets 与 plugins 的执行顺序
 
 * Plugin 会运行在 Preset 之前。
 * Plugin 会从第一个开始顺序执行。
