@@ -58,18 +58,28 @@ chrome 1 与 chrome 71 的区别
 
 chrome 71:
 
-![chrome 71](http://img.fengyuanzemin.com/blog/usage%20chrome71.png)
+![chrome 71](http://img.fengyuanzemin.com/blog/chrome%2071.png)
+
+bundle 文件：
+
+![bundle 文件](http://img.fengyuanzemin.com/blog/chrome%2071%20bundle.png)
 
 chrome 1:
 
-![chrome 1](http://img.fengyuanzemin.com/blog/entry%20chrome1.png)
+![chrome 1](http://img.fengyuanzemin.com/blog/chrome%201.png)
+
+bundle 文件：
+
+![bundle文件](http://img.fengyuanzemin.com/blog/chrome%201%20bundle.png)
+
+大家可以看到，在不同的target下，生成的代码是不一样的。
 
 ### module
 启用ES6模块语法到另一个模块类型的转换。
 
 可以设置为 "amd" | "umd" | "systemjs" | "commonjs" | "cjs" | "auto" | false。
 
-
+![amd](http://img.fengyuanzemin.com/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%8811.33.49.png)
 
 设为 amd 之后，打包的文件多了 _WEBPACK_AMD_DEFINE_ARRAY
 
@@ -85,7 +95,7 @@ chrome 1:
 
 使用它会根据 preset-env的 targets 配置 和 项目里面的代码 加入相应的 polyfill。不多余
 
-
+![chrome 71](http://img.fengyuanzemin.com/blog/usage%20chrome71.png)
 
 而且会检测代码里面已经有 @babel/polyfill 时会提醒你代码冗余。
 
@@ -97,10 +107,9 @@ chrome 1:
 
 它会根据你的 targers 特性引入相应的 polyfill，不管你有没有使用
 
-
+![chrome71](http://img.fengyuanzemin.com/blog/entry%20chrome71.png)
 
 这会根据 browserslist 目标导入所有 polyfill，这样你就不用再担心依赖的 polyfill 问题了，但是因为包含了一些没有用到的 polyfill 所以最终的包大小可能会增加。
-
 
 
 #### false
@@ -126,7 +135,7 @@ TC39 将提案分为以下几个阶段:
 
 然而在 babel 7 之后，它被废弃了。当我配置好运行之后就会报这个错。
 
-
+![stage-0报错](http://img.fengyuanzemin.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-01-28%20%E4%B8%8B%E5%8D%8811.40.26.png)
 
 废弃的目的其实是想让配置更清晰。
 
@@ -280,17 +289,23 @@ yarn add @babel/plugin-transform-runtime -D
 yarn add @babel/runtime
 ```
 
+配置
+
+```js
+module.exports = {
+  plugins: [
+    ['@babel/plugin-transform-runtime']
+  ],
+}
+```
+
 #### transform-runtime 与 babel-polyfill
 
 见 [babel transform-runtime 和 polyfill](http://blog.fengyuanzemin.com/2019/01/27/transform-runtime%E5%92%8Cpolyfill/)
 
 ## polyfill
 
-当我什么都没配置时，babel是不会做转译的。相当于代码复制粘贴，然后外面套了一个 webpack 的壳子。
-
-在低版本浏览器下就会出现各种问题
-
-
+上文有提，babel 只会对新语法进行转译，而新的API是不会处理。
 
 这个时候就需要 polyfill 了。
 
@@ -306,4 +321,35 @@ Babel 包含一个可自定义 regenerator runtime 和 core-js 的 polyfill 。
 * Plugin 会运行在 Preset 之前。
 * Plugin 会从第一个开始顺序执行。
 * Preset 的顺序则刚好相反(从最后一个逆序执行)。
+
+## 最后的配置文件
+
+```js
+module.exports = {
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        modules: false,
+        targets: {
+          "browsers": ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 9', 'iOS >= 8', 'Android >= 4']
+        },
+        useBuiltIns: 'usage'
+      }
+    ],
+  ],
+  plugins: [
+    ['@babel/plugin-transform-runtime']
+  ],
+}
+```
+
+这个配置
+
+1. transform-runtime 控制重复引用，
+2. polyfill 处理新的API
+3. 对于 treeshaking 有相应支持.
+4. 有 targets 目标浏览器
+
+如果有写 react 或者 ts 则需要自行加上相应的 preset
 
