@@ -1,6 +1,6 @@
 ---
 title: babel 升级 7（译）
-tags: [翻译]
+tags: [翻译, babel]
 date: 2019-01-26
 ---
 
