@@ -1,5 +1,5 @@
 ---
-title: 正则匹配中文字符UTF-8
+title: PHP/JS 正则匹配中文字符UTF-8
 date: 2015-05-06
 tag: [PHP, Javascript]
 ---
@@ -11,16 +11,19 @@ tag: [PHP, Javascript]
 
 结果到后来一询问才发现自己大错特错。
 
+<!--more-->
+
 # JS写法
 下面先说JS的写法吧：
+
 ```javascript
 <script>
         var str="ftgfg风缘择敏hjkhj";
         var reg=/[\u4e00-\u9fa5]+/;
-        if(reg.exec(str)){
+        if (reg.exec(str)) {
             alert('有中文');
         }
-        else{
+        else {
             alert('没有中文');
         }           
 </script>

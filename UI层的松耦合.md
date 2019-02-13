@@ -10,6 +10,8 @@ tags: 读书笔记
 * CSS用来给页面添加样式，创建视觉特征
 * JavaScript用来给页面添加行为，使其更具交互性
 
+<!--more-->
+
 UI关系是这样的：
 HTML在底层，CSS和JavaScript在高层
 
